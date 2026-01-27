@@ -1,9 +1,9 @@
-defmodule Fret.Note.Guards do
+defmodule Fretwire.Note.Guards do
   @moduledoc false
 
-  use Fret.Note.Elements
+  use Fretwire.Note.Elements
 
-  alias Fret.Note
+  alias Fretwire.Note
 
   defguard is_natural_note(note)
            when is_struct(note, Note) and

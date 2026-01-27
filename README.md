@@ -1,16 +1,16 @@
-# Fret
+# Fretwire
 
 **TODO: Add description**
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `fret` to your list of dependencies in `mix.exs`:
+by adding `fretwire` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:fret, "~> 0.1.0"}
+    {:fretwire, "~> 0.1.0"}
   ]
 end
 ```

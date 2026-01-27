@@ -1,11 +1,11 @@
-defmodule Fret.Note do
+defmodule Fretwire.Note do
   @moduledoc false
 
-  use Fret.Note.Elements
+  use Fretwire.Note.Elements
 
-  alias Fret.Note.Elements
+  alias Fretwire.Note.Elements
 
-  @enforce_keys [:name, :accidental, :octave]
+  @enforce_keys [:name, :accidental, :octave, :frequency]
 
   defstruct [:name, :accidental, :octave, :frequency]
 
@@ -41,6 +41,23 @@ defmodule Fret.Note do
 
   @type note :: natural_note() | enharmonic_notes()
 
+  @spec new(
+          Elements.sharp_note_name(),
+          Elements.flat_note_name(),
+          Elements.octave(),
+          Elements.frequency()
+        ) :: %__MODULE__{}
+  @spec new(
+          Elements.note_name(),
+          Elements.accidental(),
+          Elements.octave(),
+          Elements.frequency()
+        ) :: %__MODULE__{}
+  @spec new(
+          Elements.natural_note_name(),
+          Elements.octave(),
+          Elements.frequency()
+        ) :: %__MODULE__{}
   def new(sharp_note_name, flat_note_name, octave, frequency)
       when sharp_note_name in @sharp_note_names and
              flat_note_name in @flat_note_names do
@@ -63,7 +80,7 @@ defmodule Fret.Note do
     }
   end
 
-  def new(name, octave, frequency) do
-    new(name, :natural, octave, frequency)
+  def new(natural_note_name, octave, frequency) do
+    new(natural_note_name, :natural, octave, frequency)
   end
 end

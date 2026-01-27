@@ -1,18 +1,14 @@
-defmodule Fret do
-  @moduledoc """
-  Documentation for `Fret`.
-  """
+defmodule Fretwire.Fret do
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  alias Fretwire.Note
 
-  ## Examples
+  @enforce_keys [:number, :note]
 
-      iex> Fret.hello()
-      :world
+  defstruct [:number, :note]
 
-  """
-  def hello do
-    :world
-  end
+  @type t :: %__MODULE__{
+          number: pos_integer(),
+          note: Note.note()
+        }
 end

@@ -1,4 +1,4 @@
-defmodule Fret.Note.Elements do
+defmodule Fretwire.Note.Elements do
   @moduledoc false
 
   @note_names [:c, :d, :e, :f, :g, :a, :b]
@@ -14,6 +14,8 @@ defmodule Fret.Note.Elements do
   @octaves 0..8
 
   @type note_name :: :c | :d | :e | :f | :g | :a | :b
+
+  @type natural_note_name :: :c | :d | :e | :f | :g | :a | :b
 
   @type sharp_note_name :: :f | :c | :g | :d | :a
 
