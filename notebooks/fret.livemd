@@ -1,0 +1,34 @@
+# Fretwire
+
+```elixir
+Mix.install(
+  [
+    {:kino, "~> 0.18.0"},
+    {:fretwire, path: Path.join([__DIR__, "fretwire"]), env: :dev}
+  ],
+  config_path: :fretwire,
+  lockfile: :fretwire
+)
+```
+
+## Section
+
+```elixir
+import Fretwire.Notes.Sigils
+
+Fretwire.Notes.from(~NOTE/E5/, 12)
+```
+
+```elixir
+Fretwire.Notes.from(~NOTE/A5/, 12)
+```
+
+```elixir
+Kino.Mermaid.new("""
+graph TD;
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;
+""")
+```

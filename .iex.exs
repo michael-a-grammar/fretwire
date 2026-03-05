@@ -19,7 +19,7 @@ defmodule Helpers do
 
   defp notes_from(note) do
     note
-    |> Notes.from(22)
+    |> Notes.from(12)
     |> Enum.map(fn
       %Note{name: name} ->
         to_string(name)
