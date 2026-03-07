@@ -1,17 +1,11 @@
 defmodule Fretwire.Interval do
   @moduledoc false
 
-  @qualities [:perfect, :minor, :major, :diminished, :augmented]
-
   @interval_names [:unison, :second, :third, :fourth, :fifth, :sixth, :seventh, :octave]
-
-  @interval_numbers 1..8
 
   @perfect_interval_numbers [1, 4, 5, 8]
 
   @minor_and_major_interval_numbers [2, 3, 6, 7]
-
-  @semitones 0..12
 
   @interval_numbers_to_semitones %{
     1 => 0,

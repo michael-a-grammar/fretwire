@@ -1,7 +1,9 @@
 import_file_if_available("~/.iex.exs")
 
+import Fretwire.Interval.Sigils
 import Fretwire.Notes.Sigils
 
+alias Fretwire.Interval
 alias Fretwire.Note
 alias Fretwire.Notes
 
