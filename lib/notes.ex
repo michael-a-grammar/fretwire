@@ -60,10 +60,8 @@ defmodule Fretwire.Notes do
   defp create_notes do
     @octaves
     |> Enum.flat_map(fn octave ->
-      @note_names
-      |> Enum.map(&{&1, octave})
-      |> Enum.chunk_every(2, 1)
-      |> Enum.flat_map(&map_notes_and_octave/1)
+      @notes
+      |> Enum.map(&map_notes_and_octave(&1, octave))
       |> Enum.filter(&filter_notes/1)
     end)
     |> then(&calculate_note_frequencies/1)
@@ -93,16 +91,12 @@ defmodule Fretwire.Notes do
     false
   end
 
-  defp map_notes_and_octave([{:e, _} = e, {:f, _}]) do
-    [e]
+  defp map_notes_and_octave({{sharp_note_name, _}, {flat_note_name, _}}, octave) do
+    {sharp_note_name, flat_note_name, octave}
   end
 
-  defp map_notes_and_octave([{note_name, octave}, {next_note_name, _}]) do
-    [{note_name, octave}, {note_name, next_note_name, octave}]
-  end
-
-  defp map_notes_and_octave(b) do
-    b
+  defp map_notes_and_octave(note, octave) do
+    {note, octave}
   end
 
   defp filter_notes({natural_note_name, 0}) when natural_note_name not in [:a, :b] do

@@ -4,6 +4,7 @@ defmodule Fretwire.Note do
   use Fretwire.Note.Elements
 
   alias Fretwire.Note.Elements
+  alias Fretwire.Symbols
 
   @enforce_keys [:name, :accidental, :octave, :frequency]
 
@@ -11,7 +12,7 @@ defmodule Fretwire.Note do
 
   @type t :: %__MODULE__{
           name: Elements.note_name(),
-          accidental: Elements.accidental(),
+          accidental: Symbols.accidental(),
           octave: Elements.octave(),
           frequency: Elements.frequency()
         }
@@ -49,7 +50,7 @@ defmodule Fretwire.Note do
         ) :: %__MODULE__{}
   @spec new(
           Elements.note_name(),
-          Elements.accidental(),
+          Symbols.accidental(),
           Elements.octave(),
           Elements.frequency()
         ) :: %__MODULE__{}
